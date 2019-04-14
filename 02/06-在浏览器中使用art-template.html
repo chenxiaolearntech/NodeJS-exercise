@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!-- 注意：在浏览器中需要引用 lib/template-web.js文件 
+		 强调：模板引擎不关心你的字符串内容，只关心自己能认识的模板标记语法，例如{{}}， {{}}语法被称之为mustache语法
+	-->
+	<script src="node_modules/art-template/lib/template-web.js"></script>
+	<script type="text/template" id="tpl">
+		<!DOCTYPE html>
+			<html>
+			<head>
+			<title></title>
+			</head>
+			<body>
+				大家好 我叫{{ name }}
+				今年 {{ age }} 岁
+				来自 {{ province }}
+				喜欢：{{ each hobbies }} {{ $value }} {{/each}}
+			</body>
+		</html>
+		
+	</script>
+	<script>
+		var ret = template('tpl', {
+			name: 'jack',
+			age: 18,
+			province: '北京市',
+			hobbies: [
+			'写代码',
+			'唱歌',
+			'看书'
+			]
+		})
+		console.log(ret);
+	</script>
+</body>
+</html>

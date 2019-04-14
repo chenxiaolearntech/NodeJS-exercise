@@ -1,0 +1,21 @@
+{{ extend './layout.html'}}    // 继承 延伸
+
+{{ block 'head' }}    // 最终填入的内容会被替换到留坑的文件内容中
+<style>
+	body {
+		background: skyblue;
+	}
+</style>
+{{ /block }}
+
+{{ block 'content' }}
+<div>
+	<h1>index 页面填坑内容</h1>
+</div>
+{{ /block }}
+
+{{ block 'scripts' }}    
+<script type="text/javascript">
+	console.log('index 页面自己的 js 脚本')
+</script>
+{{ /block }}

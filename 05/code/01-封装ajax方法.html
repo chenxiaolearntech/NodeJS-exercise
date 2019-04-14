@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	//setTimeout
+	//readFile
+	//writeFile
+	//readdir
+	//ajax
+	// 往往异步API 都伴随着一个回调函数
+	
+	function get (url, callback) {
+		var oReq = new XMLHttpRequest()
+		// 当请求加载成功之后要调用指定的函数
+		oReq.onload = function () {
+			callback(oReq.responseText)
+		}
+		oReq.open("get", url, true)
+		oReq.send()
+	}
+	get('db.json', function (data) {
+		console.log(data)
+	})
+	
+</script>
+</body>
+</html>
